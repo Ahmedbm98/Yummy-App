@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/imgs/logo.png"
+      type="image/x-icon"
+    />
+    <title>Document</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+    <!-- Bootstrap Css File -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <!-- Main css File -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Start Loading Screen Section -->
+    <div class="loader">
+      <div data-glitch="Loading..." class="glitch">Loading...</div>
+    </div>
+    <!-- End Loading Screen Section -->
+
+    <!-- Start Navbar Section -->
+    <nav class="sidebar position-fixed min-vh-100 d-flex top-0 text-white z-1">
+      <div
+        class="nav-body d-flex flex-column justify-content-between bg-black p-4"
+      >
+        <ul class="list-unstyled overflow-hidden">
+          <li class="search">
+            <a onclick="getSectionInputs()">Search</a>
+          </li>
+          <li class="category">
+            <a href="#categorySection" onclick="fetchDataCategory()"
+              >Categories</a
+            >
+          </li>
+          <li class="area">
+            <a href="#areaSection" onclick="fetchDataArea()">Area</a>
+          </li>
+          <li class="ingredient">
+            <a href="#ingredientsSection" onclick="fetchDataIngredient()"
+              >Ingredients</a
+            >
+          </li>
+          <li class="contact">
+            <a href="#contactsSection" onclick="sectionContact()">Contact Us</a>
+          </li>
+        </ul>
+        <div class="nav-footer">
+          <div class="social-icons d-flex gap-3">
+            <a target="_blank" href="https://www.facebook.com/"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a target="_blank" href="https://www.twitter.com/"
+              ><i class="fa-brands fa-twitter"></i
+            ></a>
+            <a target="_blank" href="https://www.Google.com/"
+              ><i class="fa-solid fa-globe"></i
+            ></a>
+          </div>
+          <div class="foot my-2">
+            <p>
+              &#169; Copyright <span class="date"> 2024</span>, <br />
+              Made by ❤️ Ahmed A Basset
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="nav-icons text-black d-flex flex-column justify-content-between align-items-center bg-white px-3 py-4"
+      >
+        <div class="image">
+          <img src="./assets/imgs/logo.png" width="50 d-block" alt="" />
+        </div>
+        <div class="icon-bar">
+          <label class="burger" for="burger">
+            <input type="checkbox" id="burger" />
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        <div class="icons">
+          <p><i class="fa-solid fa-earth-americas"></i></p>
+          <p><i class="fa-solid fa-share-nodes"></i></p>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar Section -->
+
+    <!-- Start Main Section -->
+    <section class="w-75 mx-auto">
+      <!-- Search Container -->
+      <div class="container mb-4" id="searchContainer"></div>
+
+      <!-- Show Data -->
+      <div class="container">
+        <div
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 data-meals"
+        ></div>
+      </div>
+
+      <!-- Contact Section -->
+      <section
+        class="d-flex justify-content-center align-items-center text-white"
+      >
+        <div class="container w-75">
+          <div class="row d-none" id="contactSection">
+            <form action="#" class="border rounded text-center p-5">
+              <h3 class="my-3">Contact Us</h3>
+              <!-- Name & Email -->
+              <div class="d-flex gap-2">
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    oninput="validInputs(this, regName)"
+                    type="text"
+                    placeholder="Enter Your Name"
+                    id="fullName"
+                    class="form-control"
+                  />
+                  <small class="d-block py-2 text-danger d-none name-error"
+                    >Minimum 3 Char</small
+                  >
+                </div>
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    oninput="validInputs(this, regEmail)"
+                    type="text"
+                    name="Email"
+                    id="email"
+                    placeholder="Enter Your Email"
+                    class="form-control"
+                  />
+                  <small class="d-block py-2 text-danger d-none email-error">
+                    Email not valid *exemple@yyy.zzz</small
+                  >
+                </div>
+              </div>
+              <!-- Phone & Age -->
+              <div class="d-flex gap-2">
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    oninput="validInputs(this, regPhone)"
+                    type="tel"
+                    name="phone"
+                    id="tel"
+                    placeholder="Enter Your Phone"
+                    class="form-control"
+                  />
+                  <small class="d-block py-2 text-danger d-none phone-error"
+                    >Enter valid Phone Number</small
+                  >
+                </div>
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    oninput="validInputs(this, regAge)"
+                    type="number"
+                    name="age"
+                    id="age"
+                    min="1"
+                    placeholder="Enter Your Age"
+                    class="form-control"
+                  />
+                  <small class="d-block py-2 text-danger d-none age-error"
+                    >Enter valid age</small
+                  >
+                </div>
+              </div>
+              <!-- password -->
+              <div class="d-flex gap-2">
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    oninput="validPassword(this, regPassword)"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Enter Your password"
+                    class="form-control"
+                  />
+                  <small class="d-block py-2 text-danger d-none password-error"
+                    >Enter valid password *Minimum eight characters, <br />
+                    at least one Special Char and one number:*</small
+                  >
+                </div>
+                <div class="w-100 mb-2 text-center text-capitalize">
+                  <input
+                    type="password"
+                    name="repassword"
+                    id="repassword"
+                    placeholder="Enter Your repassword"
+                    class="form-control"
+                  />
+                  <small
+                    class="d-block py-2 text-danger d-none repassword-error"
+                    >Enter valid repassword</small
+                  >
+                </div>
+              </div>
+              <button
+                class="mt-4 btn btn-outline-warning toggle-button disabled"
+              >
+                submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!-- End Main Section -->
+
+    <!-- Start Not Found Page -->
+    <section class="d-none" id="notfound">
+      <div class="notfound">
+        <div class="notfound-404">
+          <h1>404</h1>
+          <h2>
+            Your Request <br />
+            Not Found
+          </h2>
+        </div>
+      </div>
+    </section>
+    <!-- End Not Found Page -->
+
+    <!-- Bootstrap Js File -->
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuary File -->
+    <script src="./assets/js/jquery-3.7.1.min.js"></script>
+    <!-- Main Js File -->
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

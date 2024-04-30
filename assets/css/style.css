@@ -1,0 +1,362 @@
+/* Start Global Variables */
+:root {
+   --white-color: #f5f4f4;
+   --dark-color: #121212;
+}
+
+/* End Global Variables */
+/* Start Global Rules */
+body {
+   font-family: "Poppins", sans-serif;
+   background-color: var(--dark-color);
+}
+
+a {
+   display: inline-block;
+   text-decoration: none;
+   color: inherit;
+}
+
+
+
+/* End Global Rules */
+/* Start Main Section */
+section {
+   padding-block: 3rem;
+}
+
+section div.content-section {
+   position: relative;
+   overflow: hidden;
+   cursor: pointer;
+}
+
+section div.capture-section {
+   background-color: rgb(245, 244, 244, .8);
+   position: absolute;
+   inset: 10px;
+   padding: 15px;
+   transform: translateY(110%);
+   transition: linear .4s transform;
+}
+
+section div.content-section:hover div.capture-section {
+   transform: translateY(0);
+}
+
+
+
+/* End Main Section */
+/* Start Search Section */
+section#searchSection input::placeholder {
+   color: var(--white-color);
+}
+
+/* End Search Section */
+/* Start Category Seaction */
+div.content-category {
+   position: relative;
+   cursor: pointer;
+   overflow: hidden;
+}
+
+div.content-category div.capture-category {
+   position: absolute;
+   inset: 0;
+   background-color: rgb(245, 244, 244, .77);
+   text-align: center;
+   padding: .4rem;
+   transform: translateY(110%);
+   transition: transform linear .4s;
+}
+
+div.content-category:hover div.capture-category {
+   transform: translateY(0);
+}
+
+/* End Category Seaction */
+/* Start Area Section */
+div.content-area,
+div.content-ingredient {
+   cursor: pointer;
+}
+
+/* Start Area Section */
+
+/* Start Loading  */
+.loader {
+   position: absolute;
+   inset: 0;
+   background-color: #101720;
+   z-index: 10;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.glitch {
+   position: relative;
+   font-size: 25px;
+   font-weight: 700;
+   line-height: 1.2;
+   color: #fff;
+   letter-spacing: 5px;
+   z-index: 1;
+   animation: shift 1s ease-in-out infinite alternate;
+}
+
+.glitch:before,
+.glitch:after {
+   display: block;
+   content: attr(data-glitch);
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0.8;
+}
+
+.glitch:before {
+   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+   color: #8b00ff;
+   z-index: -1;
+}
+
+.glitch:after {
+   animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+   color: #00e571;
+   z-index: -2;
+}
+
+@keyframes glitch {
+   0% {
+      transform: translate(0);
+   }
+
+   20% {
+      transform: translate(-3px, 3px);
+   }
+
+   40% {
+      transform: translate(-3px, -3px);
+   }
+
+   60% {
+      transform: translate(3px, 3px);
+   }
+
+   80% {
+      transform: translate(3px, -3px);
+   }
+
+   to {
+      transform: translate(0);
+   }
+}
+
+@keyframes shift {
+
+   0%,
+   40%,
+   44%,
+   58%,
+   61%,
+   65%,
+   69%,
+   73%,
+   100% {
+      transform: skewX(0deg);
+   }
+
+   41% {
+      transform: skewX(10deg);
+   }
+
+   42% {
+      transform: skewX(-10deg);
+   }
+
+   59% {
+      transform: skewX(40deg) skewY(10deg);
+   }
+
+   60% {
+      transform: skewX(-40deg) skewY(-10deg);
+   }
+
+   63% {
+      transform: skewX(10deg) skewY(-5deg);
+   }
+
+   70% {
+      transform: skewX(-50deg) skewY(-20deg);
+   }
+
+   71% {
+      transform: skewX(10deg) skewY(-10deg);
+   }
+}
+
+/* End Loading  */
+/* Start Navbar Section */
+.burger {
+   position: relative;
+   width: 40px;
+   height: 30px;
+   background: transparent;
+   cursor: pointer;
+   display: block;
+}
+
+.burger input {
+   display: none;
+}
+
+.burger span {
+   display: block;
+   position: absolute;
+   height: 4px;
+   width: 100%;
+   background: var(--dark-color);
+   border-radius: 9px;
+   opacity: 1;
+   left: 0;
+   transform: rotate(0deg);
+   transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+   top: 0px;
+   transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+   top: 50%;
+   transform: translateY(-50%);
+   transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+   top: 100%;
+   transform-origin: left center;
+   transform: translateY(-100%);
+}
+
+.burger input:checked~span:nth-of-type(1) {
+   transform: rotate(45deg);
+   top: 0px;
+   left: 5px;
+}
+
+.burger input:checked~span:nth-of-type(2) {
+   width: 0%;
+   opacity: 0;
+}
+
+.burger input:checked~span:nth-of-type(3) {
+   transform: rotate(-45deg);
+   top: 28px;
+   left: 5px;
+}
+
+/* End Navbar Section */
+/* Start Not Found Page */
+/* Start Not Found Page Section */
+#notfound {
+   position: absolute;
+   height: 100vh;
+   inset: 0;
+   z-index: -1;
+   background: #030005;
+}
+
+#notfound .notfound {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+}
+
+.notfound {
+   max-width: 767px;
+   width: 100%;
+   line-height: 1.4;
+   text-align: center;
+}
+
+.notfound .notfound-404 {
+   position: relative;
+   height: 180px;
+   margin-bottom: 20px;
+   z-index: -1;
+}
+
+.notfound .notfound-404 h1 {
+   font-family: 'Montserrat', sans-serif;
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   -webkit-transform: translate(-50%, -50%);
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+   font-size: 224px;
+   font-weight: 900;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   margin-left: -12px;
+   color: #030005;
+   text-transform: uppercase;
+   text-shadow: -1px -1px 0px #8400ff, 1px 1px 0px #ff005a;
+   letter-spacing: -20px;
+}
+
+
+.notfound .notfound-404 h2 {
+   font-family: 'Montserrat', sans-serif;
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 110px;
+   font-size: 42px;
+   font-weight: 700;
+   color: #fff;
+   text-transform: uppercase;
+   text-shadow: 0px 2px 0px #8400ff;
+   letter-spacing: 13px;
+   margin: 0;
+}
+
+.notfound a {
+   font-family: 'Montserrat', sans-serif;
+   display: inline-block;
+   text-transform: uppercase;
+   color: #ff005a;
+   text-decoration: none;
+   border: 2px solid;
+   background: transparent;
+   padding: 10px 40px;
+   font-size: 14px;
+   font-weight: 700;
+   -webkit-transition: 0.2s all;
+   transition: 0.2s all;
+}
+
+.notfound a:hover {
+   color: #8400ff;
+}
+
+@media only screen and (max-width: 767px) {
+   .notfound .notfound-404 h2 {
+      font-size: 24px;
+   }
+}
+
+@media only screen and (max-width: 480px) {
+   .notfound .notfound-404 h1 {
+      font-size: 182px;
+   }
+}
+
+/* End Not Found Page Section */
+/* End Not Found Page */
