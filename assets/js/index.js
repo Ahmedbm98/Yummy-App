@@ -136,7 +136,7 @@ async function fetchDataMeals(url) {
 // Show Data Meals
 function showDataMeals(myData) {
   $(dataMeals).html("");
-  $("#searchContainer").html("");
+
   $("#contactSection").addClass("d-none");
 
   $(dataMeals).addClass("row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4");
@@ -264,7 +264,7 @@ function getSectionInputs() {
   $(dataMeals).addClass("row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4");
 
   let continerSearch = `
-   <div class="row row-cols-1 row-cols-sm-2">
+   <div class="row row-cols-1 row-cols-sm-2 content-search">
       <div class="">
            <input
             oninput="searchByName(this)"

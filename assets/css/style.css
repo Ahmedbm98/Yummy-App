@@ -48,7 +48,7 @@ section div.content-section:hover div.capture-section {
 
 /* End Main Section */
 /* Start Search Section */
-section#searchSection input::placeholder {
+div.content-search input::placeholder {
    color: var(--white-color);
 }
 
